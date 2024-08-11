@@ -81,9 +81,7 @@ export function Game() {
           color: colorArray[randomColor],
           side: randomSide,
         };
-        setCars((prevCars) => {
-          return [...prevCars, newCar];
-        });
+        setCars((prevCars) => [...prevCars, newCar]);
       }
     }
 

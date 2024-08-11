@@ -10,6 +10,8 @@ const StyledCar = styled.div`
   bottom: ${({ $bottomcoor }) => $bottomcoor};
   left: ${({ $sidecoor, $side }) => ($side === 0 ? $sidecoor : "none")};
   right: ${({ $sidecoor, $side }) => ($side === 1 ? $sidecoor : "none")};
+  font-size: 40px;
+  text-align: center;
 `;
 
 export function Car({
@@ -55,6 +57,12 @@ export function Car({
       $sidecoor={`${sidecoor}px`}
       $color={color}
       $side={side}
-    ></StyledCar>
+    >
+      {color === "white" && "👽"}
+      {color === "red" && "👻"}
+      {color === "green" && "😺"}
+      {color === "orange" && "💩"}
+      {color === "pink" && "🙈"}
+    </StyledCar>
   );
 }
