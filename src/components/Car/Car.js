@@ -4,40 +4,43 @@ import styled from "styled-components";
 const StyledCar = styled.div`
   height: 50px;
   width: 100px;
-  background: var(--tertiary-color);
+  background: ${({ $color }) => $color};
   position: absolute;
   border-radius: 20px;
   bottom: ${({ $bottomcoor }) => $bottomcoor};
-  left: ${({ $leftcoor }) => $leftcoor};
+  left: ${({ $sidecoor, $side }) => ($side === 0 ? $sidecoor : "none")};
+  right: ${({ $sidecoor, $side }) => ($side === 1 ? $sidecoor : "none")};
 `;
 
-function Car({
+export function Car({
   id,
   positionCoor,
+  color,
+  side,
   onDeleteCar,
   playerPosition,
   onGameLost,
   level,
 }) {
-  const [leftcoor, setLeftCoor] = useState(0);
+  const [sidecoor, setLeftCoor] = useState(0);
 
   useEffect(() => {
     function moveCar() {
-      setLeftCoor(leftcoor + 10 * level);
+      setLeftCoor(sidecoor + 10 * level);
     }
 
-    if (leftcoor >= 375 && leftcoor <= 525 && playerPosition === positionCoor) {
+    if (sidecoor >= 375 && sidecoor <= 525 && playerPosition === positionCoor) {
       onGameLost();
     }
 
-    if (leftcoor >= 910) {
+    if (sidecoor >= 910) {
       onDeleteCar(id);
     }
 
     const moveInterval = setInterval(moveCar, 100);
     return () => clearInterval(moveInterval);
   }, [
-    leftcoor,
+    sidecoor,
     id,
     onDeleteCar,
     onGameLost,
@@ -49,9 +52,9 @@ function Car({
   return (
     <StyledCar
       $bottomcoor={`${positionCoor}px`}
-      $leftcoor={`${leftcoor}px`}
+      $sidecoor={`${sidecoor}px`}
+      $color={color}
+      $side={side}
     ></StyledCar>
   );
 }
-
-export default Car;
