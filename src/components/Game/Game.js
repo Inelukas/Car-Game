@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Car from "../Car/Car";
+import { Car } from "../Car/Car";
 import { Player } from "../Player/Player";
 import { useEffect, useState } from "react";
 import { uid } from "uid";
@@ -55,12 +55,32 @@ export function Game() {
   const [gameOn, setGameOn] = useState(false);
   const [gameOver, setGameOver] = useState(false);
 
+  const colorArray = [
+    "red",
+    "blue",
+    "yellow",
+    "green",
+    "orange",
+    "black",
+    "white",
+    "purple",
+    "pink",
+    "gray",
+  ];
+
   useEffect(() => {
     function createCar() {
       if (cars.length < 40) {
-        const randomNumber = Math.floor(Math.random() * 10);
+        const randomColor = Math.floor(Math.random() * 10);
+        const randomSide = Math.floor(Math.random() * 2);
+        const randomPosition = Math.floor(Math.random() * 10);
         const carId = uid();
-        const newCar = { pos: randomNumber * 50, id: carId };
+        const newCar = {
+          pos: randomPosition * 50,
+          id: carId,
+          color: colorArray[randomColor],
+          side: randomSide,
+        };
         setCars((prevCars) => {
           return [...prevCars, newCar];
         });
@@ -121,6 +141,8 @@ export function Game() {
                   key={car.id}
                   id={car.id}
                   positionCoor={car.pos}
+                  color={car.color}
+                  side={car.side}
                   onDeleteCar={handleDeleteCar}
                   playerPosition={playerPosition}
                   onGameLost={handleGameLost}
