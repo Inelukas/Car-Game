@@ -4,6 +4,20 @@ import { Player } from "../Player/Player";
 import { useEffect, useState } from "react";
 import { uid } from "uid";
 
+const StyledWhole = styled.div`
+  @media screen and (max-width: 1200px) {
+    transform: scale(0.8);
+  }
+
+  @media screen and (max-width: 900px) {
+    transform: scale(0.6);
+  }
+
+  @media screen and (max-width: 600px) {
+    transform: scale(0.5);
+  }
+`;
+
 const StyledScreen = styled.div`
   display: flex;
   align-items: center;
@@ -43,18 +57,6 @@ const StyledGame = styled.div`
   background-color: var(--secondary-color);
   background-image: var(--custom-image-2);
   position: relative;
-
-  @media screen and (max-width: 1200px) {
-    transform: scale(0.8);
-  }
-
-  @media screen and (max-width: 900px) {
-    transform: scale(0.6);
-  }
-
-  @media screen and (max-width: 600px) {
-    transform: scale(0.5);
-  }
 `;
 
 const GameOverScreen = styled.div`
@@ -183,7 +185,7 @@ export function Game({
   }
 
   return (
-    <>
+    <StyledWhole>
       {!gameOver && gameOn ? (
         <StyledScreen>
           <div className="buttons">
@@ -236,6 +238,6 @@ export function Game({
           <button onClick={handleGameOn}>Confirm</button>
         </StartingScreen>
       )}
-    </>
+    </StyledWhole>
   );
 }
