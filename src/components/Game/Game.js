@@ -5,17 +5,8 @@ import { useEffect, useState } from "react";
 import { uid } from "uid";
 
 const StyledWhole = styled.div`
-  @media screen and (max-width: 1200px) {
-    transform: scale(0.8);
-  }
-
-  @media screen and (max-width: 900px) {
-    transform: scale(0.6);
-  }
-
-  @media screen and (max-width: 600px) {
-    transform: scale(0.5);
-  }
+  width: 100vw;
+  height: 100vh;
 `;
 
 const StyledScreen = styled.div`
