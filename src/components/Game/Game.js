@@ -29,9 +29,9 @@ const StyledScreen = styled.div`
       flex-direction: row;
       position: absolute;
       bottom: -5vh;
-      left: 40%;
+      left: 35%;
       z-index: 2;
-      gap: 10vw;
+      gap: 20vw;
     }
   }
 
@@ -217,7 +217,9 @@ export function Game({
                 level={level}
               />
             </StyledGame>
-            <h1 style={{ color: "var(--side-color)" }}>Level: {level}</h1>
+            <h1 style={{ color: "var(--side-color)", marginLeft: "5vw" }}>
+              Level: {level}
+            </h1>
           </div>
         </StyledScreen>
       ) : gameOver && gameOn ? (
