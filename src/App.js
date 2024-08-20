@@ -9,6 +9,10 @@ const StyledBody = styled.div`
   display: grid;
   place-content: center;
   height: 100vh;
+
+  @media screen and (max-width: 900px) {
+    transform: rotate(90deg);
+  }
 `;
 
 function App() {
