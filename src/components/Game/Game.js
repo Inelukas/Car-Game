@@ -10,6 +10,15 @@ const StyledScreen = styled.div`
   gap: 20px;
   position: relative;
 
+  .countdown {
+    display: flex;
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+    z-index: 2;
+  }
+
   .buttons {
     display: flex;
     flex-direction: column;
@@ -104,6 +113,8 @@ export function Game({
 }) {
   const [cars, setCars] = useState([]);
   const [playerPosition, setPlayerPosition] = useState(-50);
+  const [canMove, setCanMove] = useState(false);
+  const [seconds, setSeconds] = useState(5);
 
   const colorArray = [
     "red",
@@ -117,6 +128,17 @@ export function Game({
     "pink",
     "gray",
   ];
+
+  useEffect(() => {
+    if (seconds <= 0) {
+      setCanMove(true);
+    }
+    const timer = setInterval(() => {
+      setSeconds((prevSeconds) => prevSeconds - 1);
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [seconds]);
 
   useEffect(() => {
     function createCar() {
@@ -144,6 +166,7 @@ export function Game({
   }
 
   function handleButtonMove(direction) {
+    if (!canMove) return;
     if (direction === "Up") {
       if (playerPosition >= 450) {
         setPlayerPosition(-50);
@@ -157,6 +180,7 @@ export function Game({
   }
 
   function handleMove(event) {
+    if (!canMove) return;
     const currentKey = event.key;
     if (currentKey === "ArrowUp") {
       if (playerPosition >= 450) {
@@ -175,6 +199,8 @@ export function Game({
     setPlayerPosition(-50);
     setCars([]);
     onGameLost(false);
+    setCanMove(false);
+    setSeconds(5);
   }
 
   function handleGameOn() {
@@ -196,6 +222,7 @@ export function Game({
           </div>
           <div className="game-and-level">
             <StyledGame>
+              {seconds >= 0 && <div className="countdown">{seconds}</div>}
               {cars.map((car) => {
                 return (
                   <Car

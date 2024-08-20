@@ -28,7 +28,9 @@ export function Car({
 
   useEffect(() => {
     function moveCar() {
-      setLeftCoor(sidecoor + 10 * level);
+      setLeftCoor(
+        level <= 5 ? sidecoor + 10 + 10 * level : sidecoor + 50 + level * 2
+      );
     }
 
     if (sidecoor >= 375 && sidecoor <= 525 && playerPosition === positionCoor) {

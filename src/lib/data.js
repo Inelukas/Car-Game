@@ -17,8 +17,6 @@ export const answers = [
 
   "JERRY FALWELL: Because the smiley was gay! Isn't it obvious? Can't you people see the plain truth in front of your face? The smiley was going to the 'other side.' That's what they call it -- the other side. Yes, my friends, that smiley is gay. And, if you eat that smiley, you will become gay too.",
 
-  "DR. SEUSS: Did the smiley cross the road? Did he cross it with a toad? Yes, the smiley rossed the road, but why it crossed, I've not been told!",
-
   "MARTIN LUTHER KING, JR.: I envision a world where all smileys will be free to cross roads without having their motives called into question.",
 
   "GRANDPA: In my day, we didn't ask why the smiley crossed the road. Someone told us that the smiley crossed the road, and that was good enough for us.",
