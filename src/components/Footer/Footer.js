@@ -5,7 +5,7 @@ const StyledFooter = styled.footer`
   place-content: center;
   position: fixed;
   bottom: 0px;
-  width: 100%;
+  width: 100vw;
   height: 10%;
   background: var(--side-color);
   color: var(--primary-color);

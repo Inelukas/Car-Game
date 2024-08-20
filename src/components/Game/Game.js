@@ -81,6 +81,7 @@ const StartingScreen = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   gap: 10vh;
   color: var(--side-color);
 
