@@ -92,7 +92,7 @@ const StartingScreen = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 10vh;
+  gap: 8vh;
   color: var(--side-color);
 
   button {
@@ -114,7 +114,7 @@ export function Game({
   const [cars, setCars] = useState([]);
   const [playerPosition, setPlayerPosition] = useState(-50);
   const [canMove, setCanMove] = useState(false);
-  const [seconds, setSeconds] = useState(5);
+  const [seconds, setSeconds] = useState(3);
 
   const colorArray = [
     "red",
@@ -192,6 +192,8 @@ export function Game({
     } else if (currentKey === "ArrowDown" && playerPosition > 0) {
       setPlayerPosition((prevValue) => prevValue - 50);
     }
+    setCanMove(false);
+    setTimeout(() => setCanMove(true), 200);
   }
 
   function handleReset() {
@@ -200,7 +202,7 @@ export function Game({
     setCars([]);
     onGameLost(false);
     setCanMove(false);
-    setSeconds(5);
+    setSeconds(3);
   }
 
   function handleGameOn() {
@@ -261,6 +263,9 @@ export function Game({
       ) : (
         <StartingScreen>
           <h1>Welcome to the epic car Game!</h1>
+          <h3>
+            Use the Arrow Keys (Up & Down) or the buttons to cross the road.
+          </h3>
           <h2>Start Playing?</h2>
           <button onClick={handleGameOn}>Confirm</button>
         </StartingScreen>
