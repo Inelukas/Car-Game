@@ -31,7 +31,7 @@ const StyledScreen = styled.div`
       bottom: -5vh;
       left: 40%;
       z-index: 2;
-      gap: 20px;
+      gap: 10vw;
     }
   }
 
@@ -40,7 +40,7 @@ const StyledScreen = styled.div`
   }
 
   @media screen and (max-width: 900px) {
-    transform: scale(0.7);
+    transform: scale(0.6);
   }
 
   @media screen and (max-width: 600px) {

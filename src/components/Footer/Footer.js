@@ -4,6 +4,7 @@ const StyledFooter = styled.footer`
   display: grid;
   place-content: center;
   position: fixed;
+  text-align: center;
   bottom: 0px;
   width: 100vw;
   height: 10vh;
