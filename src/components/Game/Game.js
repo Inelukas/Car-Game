@@ -33,6 +33,18 @@ const StyledScreen = styled.div`
       z-index: 2;
       gap: 20px;
     }
+
+    @media screen and (max-width: 1200px) {
+      transform: scale(0.9);
+    }
+
+    @media screen and (max-width: 900px) {
+      transform: scale(0.7);
+    }
+
+    @media screen and (max-width: 600px) {
+      transform: scale(0.6);
+    }
   }
 `;
 
@@ -43,18 +55,6 @@ const StyledGame = styled.div`
   background-color: var(--secondary-color);
   background-image: var(--custom-image-2);
   position: relative;
-
-  @media screen and (max-width: 1200px) {
-    transform: scale(0.9);
-  }
-
-  @media screen and (max-width: 900px) {
-    transform: scale(0.7);
-  }
-
-  @media screen and (max-width: 600px) {
-    transform: scale(0.6);
-  }
 `;
 
 const GameOverScreen = styled.div`

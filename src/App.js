@@ -8,7 +8,7 @@ import { useState } from "react";
 const StyledBody = styled.div`
   display: grid;
   place-content: center;
-  height: 100%;
+  height: 100vh;
 `;
 
 function App() {
