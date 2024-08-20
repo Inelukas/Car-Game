@@ -33,18 +33,18 @@ const StyledScreen = styled.div`
       z-index: 2;
       gap: 20px;
     }
+  }
 
-    @media screen and (max-width: 1200px) {
-      transform: scale(0.9);
-    }
+  @media screen and (max-width: 1200px) {
+    transform: scale(0.9);
+  }
 
-    @media screen and (max-width: 900px) {
-      transform: scale(0.7);
-    }
+  @media screen and (max-width: 900px) {
+    transform: scale(0.7);
+  }
 
-    @media screen and (max-width: 600px) {
-      transform: scale(0.6);
-    }
+  @media screen and (max-width: 600px) {
+    transform: scale(0.6);
   }
 `;
 
