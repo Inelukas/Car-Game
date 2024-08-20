@@ -37,14 +37,24 @@ const StyledScreen = styled.div`
 `;
 
 const StyledGame = styled.div`
-  height: 80vh; /* Use viewport height to scale the game area */
-  width: 90vw; /* Use viewport width to scale the game area */
-  max-height: 500px; /* Maximum height to prevent it from getting too large */
-  max-width: 1000px;
+  height: 500px;
+  width: 1000px;
   border-radius: 20px;
   background-color: var(--secondary-color);
   background-image: var(--custom-image-2);
   position: relative;
+
+  @media screen and (max-width: 1200px) {
+    transform: scale(0.9);
+  }
+
+  @media screen and (max-width: 900px) {
+    transform: scale(0.7);
+  }
+
+  @media screen and (max-width: 600px) {
+    transform: scale(0.6);
+  }
 `;
 
 const GameOverScreen = styled.div`

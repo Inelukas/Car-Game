@@ -23,7 +23,7 @@ const StyledHeader = styled.header`
   }
 
   h1 {
-    font-size: clamp(0.75rem, 3vw, 1.5rem);
+    font-size: clamp(0.75rem, 2vw, 1.5rem);
     margin: 0;
     padding: 0;
     white-space: normal;
