@@ -4,11 +4,6 @@ import { Player } from "../Player/Player";
 import { useEffect, useState } from "react";
 import { uid } from "uid";
 
-const StyledWhole = styled.div`
-  width: 100vw;
-  height: 100vh;
-`;
-
 const StyledScreen = styled.div`
   display: flex;
   align-items: center;
@@ -42,8 +37,10 @@ const StyledScreen = styled.div`
 `;
 
 const StyledGame = styled.div`
-  height: 500px;
-  width: 1000px;
+  height: 80vh; /* Use viewport height to scale the game area */
+  width: 90vw; /* Use viewport width to scale the game area */
+  max-height: 500px; /* Maximum height to prevent it from getting too large */
+  max-width: 1000px;
   border-radius: 20px;
   background-color: var(--secondary-color);
   background-image: var(--custom-image-2);
@@ -176,7 +173,7 @@ export function Game({
   }
 
   return (
-    <StyledWhole>
+    <>
       {!gameOver && gameOn ? (
         <StyledScreen>
           <div className="buttons">
@@ -229,6 +226,6 @@ export function Game({
           <button onClick={handleGameOn}>Confirm</button>
         </StartingScreen>
       )}
-    </StyledWhole>
+    </>
   );
 }
