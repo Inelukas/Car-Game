@@ -8,6 +8,7 @@ const StyledScreen = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+  position: relative;
 
   .buttons {
     display: flex;
@@ -24,6 +25,14 @@ const StyledScreen = styled.div`
       border-radius: 100px;
       cursor: pointer;
     }
+    @media screen and (max-width: 1200px) {
+      flex-direction: row;
+      position: absolute;
+      bottom: -5vh;
+      left: 40%;
+      z-index: 2;
+      gap: 20px;
+    }
   }
 `;
 
@@ -34,6 +43,18 @@ const StyledGame = styled.div`
   background-color: var(--secondary-color);
   background-image: var(--custom-image-2);
   position: relative;
+
+  @media screen and (max-width: 1200px) {
+    transform: scale(0.8);
+  }
+
+  @media screen and (max-width: 900px) {
+    transform: scale(0.6);
+  }
+
+  @media screen and (max-width: 600px) {
+    transform: scale(0.5);
+  }
 `;
 
 const GameOverScreen = styled.div`

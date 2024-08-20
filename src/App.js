@@ -9,18 +9,6 @@ const StyledBody = styled.div`
   display: grid;
   place-content: center;
   height: 100vh;
-
-  @media screen and (max-width: 900px) {
-    width: 90vw;
-    height: calc(90vw / 2);
-    transform: rotate(90deg) translate(-50%, -50%);
-    transform-origin: center;
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%; /* Center after rotation */
-  }
 `;
 
 function App() {
