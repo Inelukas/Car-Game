@@ -28,8 +28,8 @@ const StyledScreen = styled.div`
       display: grid;
       place-content: center;
       font-size: 30px;
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
       background: white;
       border-radius: 100px;
       cursor: pointer;
@@ -41,6 +41,13 @@ const StyledScreen = styled.div`
       left: 35%;
       z-index: 2;
       gap: 20vw;
+    }
+
+    @media screen and (max-width: 900px) {
+      gap: 30vw;
+    }
+    @media screen and (max-width: 600px) {
+      gap: 40vw;
     }
   }
 
