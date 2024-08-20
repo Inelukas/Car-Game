@@ -7,12 +7,6 @@ export const answers = [
 
   "43rd. President GEORGE W. BUSH [the Son]: We don't really care why the smiley crossed the road. We just want to know if the smiley is on our side of the road or not. The smiley is either with us or it is against us. There is no middle ground here.",
 
-  "COLIN POWELL: Now at the left of the screen, you clearly see the satellite image of the smiley crossing the road.",
-
-  "JEAN CHRETIEN: (Canadian Prime Minister) Da smiley, she is strapped to the deck of de HMCS Iroquois...",
-
-  "HANZ BLIX: (Chief weapon Inspector) We have reason to believe that there is a smiley, but we have not yet been allowed access to the other side of the road.",
-
   "MOHAMMED ALDOURI: (Iraq's ambassador) The smiley did not cross the road. This is a complete fabrication. We don't even have a smiley.",
 
   "JERRY FALWELL: Because the smiley was gay! Isn't it obvious? Can't you people see the plain truth in front of your face? The smiley was going to the 'other side.' That's what they call it -- the other side. Yes, my friends, that smiley is gay. And, if you eat that smiley, you will become gay too.",

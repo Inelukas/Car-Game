@@ -117,6 +117,7 @@ export function Game({
   gameOver,
   onGameLost,
   onNewGame,
+  highscore,
 }) {
   const [cars, setCars] = useState([]);
   const [playerPosition, setPlayerPosition] = useState(-50);
@@ -164,7 +165,7 @@ export function Game({
       }
     }
 
-    const carInterval = setInterval(createCar, 1000 / (level * 0.5 + 1));
+    const carInterval = setInterval(createCar, 800 / (level / 2));
     return () => clearInterval(carInterval);
   }, [level, cars]);
 

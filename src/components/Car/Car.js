@@ -7,6 +7,7 @@ const StyledCar = styled.div`
   background: ${({ $color }) => $color};
   position: absolute;
   border-radius: 20px;
+  border: 2px solid black;
   bottom: ${({ $bottomcoor }) => $bottomcoor};
   left: ${({ $sidecoor, $side }) => ($side === 0 ? $sidecoor : "none")};
   right: ${({ $sidecoor, $side }) => ($side === 1 ? $sidecoor : "none")};
@@ -29,7 +30,7 @@ export function Car({
   useEffect(() => {
     function moveCar() {
       setLeftCoor(
-        level <= 5 ? sidecoor + 10 + 10 * level : sidecoor + 50 + level * 2
+        level <= 5 ? sidecoor + 5 * level : sidecoor + 25 + level * 2
       );
     }
 
@@ -41,7 +42,7 @@ export function Car({
       onDeleteCar(id);
     }
 
-    const moveInterval = setInterval(moveCar, 100);
+    const moveInterval = setInterval(moveCar, 50);
     return () => clearInterval(moveInterval);
   }, [
     sidecoor,
