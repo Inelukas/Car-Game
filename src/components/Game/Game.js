@@ -255,7 +255,8 @@ export function Game({
               />
             </StyledGame>
             <h1 style={{ color: "var(--side-color)", marginLeft: "5vw" }}>
-              Level: {level}
+              Level: {level}{" "}
+              <span style={{ marginLeft: "3vw" }}>Highscore: {highscore}</span>
             </h1>
           </div>
         </StyledScreen>
