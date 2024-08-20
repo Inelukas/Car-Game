@@ -12,6 +12,7 @@ const StyledBody = styled.div`
 
   @media screen and (max-width: 900px) {
     transform: rotate(90deg);
+    transform: scale(0.8);
   }
 `;
 
