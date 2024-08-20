@@ -12,10 +12,14 @@ const StyledFooter = styled.footer`
   z-index: 2;
 `;
 
-export function Footer() {
+export function Footer({ gameOn }) {
   return (
     <StyledFooter>
-      <h2>Copyright by Lukas Klipp</h2>
+      {!gameOn ? (
+        <h2>Copyright by Lukas Klipp</h2>
+      ) : (
+        <h1>Why did the smiley cross the road?</h1>
+      )}
     </StyledFooter>
   );
 }

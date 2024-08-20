@@ -4,6 +4,29 @@ import { Player } from "../Player/Player";
 import { useEffect, useState } from "react";
 import { uid } from "uid";
 
+const StyledScreen = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+
+    .button {
+      display: grid;
+      place-content: center;
+      font-size: 30px;
+      width: 50px;
+      height: 50px;
+      background: white;
+      border-radius: 100px;
+      cursor: pointer;
+    }
+  }
+`;
+
 const StyledGame = styled.div`
   height: 500px;
   width: 1000px;
@@ -48,12 +71,16 @@ const StartingScreen = styled.div`
   }
 `;
 
-export function Game() {
+export function Game({
+  level,
+  onLevel,
+  gameOn,
+  gameOver,
+  onGameLost,
+  onNewGame,
+}) {
   const [cars, setCars] = useState([]);
-  const [level, setLevel] = useState(1);
   const [playerPosition, setPlayerPosition] = useState(-50);
-  const [gameOn, setGameOn] = useState(false);
-  const [gameOver, setGameOver] = useState(false);
 
   const colorArray = [
     "red",
@@ -93,12 +120,25 @@ export function Game() {
     setCars(cars.filter((car) => car.id !== id));
   }
 
+  function handleButtonMove(direction) {
+    if (direction === "Up") {
+      if (playerPosition >= 450) {
+        setPlayerPosition(-50);
+        onLevel(1);
+      } else {
+        setPlayerPosition((prevValue) => prevValue + 50);
+      }
+    } else if (direction === "Down" && playerPosition > 0) {
+      setPlayerPosition((prevValue) => prevValue - 50);
+    }
+  }
+
   function handleMove(event) {
     const currentKey = event.key;
     if (currentKey === "ArrowUp") {
       if (playerPosition >= 450) {
         setPlayerPosition(-50);
-        setLevel(level + 1);
+        onLevel(1);
       } else {
         setPlayerPosition((prevValue) => prevValue + 50);
       }
@@ -107,62 +147,63 @@ export function Game() {
     }
   }
 
-  function handleGameLost() {
-    setGameOver(true);
-  }
-
-  function handleNewGame() {
-    setLevel(1);
+  function handleReset() {
+    onLevel(0);
     setPlayerPosition(-50);
     setCars([]);
-    setGameOver(false);
-  }
-
-  function handleStartNewGame() {
-    setGameOn(false);
+    onGameLost(false);
   }
 
   function handleGameOn() {
-    setGameOn(true);
-    handleNewGame();
-    setGameOver(false);
+    onNewGame();
+    handleReset();
   }
 
   return (
     <>
       {!gameOver && gameOn ? (
-        <>
-          <StyledGame>
-            {cars.map((car) => {
-              return (
-                <Car
-                  key={car.id}
-                  id={car.id}
-                  positionCoor={car.pos}
-                  color={car.color}
-                  side={car.side}
-                  onDeleteCar={handleDeleteCar}
-                  playerPosition={playerPosition}
-                  onGameLost={handleGameLost}
-                  level={level}
-                />
-              );
-            })}
-            <Player
-              onMove={handleMove}
-              playerPosition={playerPosition}
-              level={level}
-            />
-          </StyledGame>
-          <h1 style={{ color: "var(--side-color)" }}>Level: {level}</h1>
-        </>
+        <StyledScreen>
+          <div className="buttons">
+            <button onClick={() => handleButtonMove("Up")} className="button">
+              ↑
+            </button>
+            <button onClick={() => handleButtonMove("Down")} className="button">
+              ↓
+            </button>
+          </div>
+          <div className="game-and-level">
+            <StyledGame>
+              {cars.map((car) => {
+                return (
+                  <Car
+                    key={car.id}
+                    id={car.id}
+                    positionCoor={car.pos}
+                    color={car.color}
+                    side={car.side}
+                    onDeleteCar={handleDeleteCar}
+                    playerPosition={playerPosition}
+                    onGameLost={() => onGameLost(true)}
+                    level={level}
+                  />
+                );
+              })}
+              <Player
+                onMove={handleMove}
+                playerPosition={playerPosition}
+                level={level}
+              />
+            </StyledGame>
+            <h1 style={{ color: "var(--side-color)" }}>Level: {level}</h1>
+          </div>
+        </StyledScreen>
       ) : gameOver && gameOn ? (
         <GameOverScreen>
           <h1>Game Over! 🫡 You have reached level {level}.</h1>
           <h2>Play Again?</h2>
           <div className="gameover-buttons">
-            <button onClick={handleNewGame}>Yes</button>
-            <button onClick={handleStartNewGame}>No</button>
+            <button onClick={handleReset}>Yes</button>
+            <button onClick={handleGameOn}>No</button>
           </div>
         </GameOverScreen>
       ) : (
