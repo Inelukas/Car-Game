@@ -150,7 +150,7 @@ export function Game({
 
   useEffect(() => {
     function createCar() {
-      if (cars.length < 40) {
+      if (cars.length < 14) {
         const randomColor = Math.floor(Math.random() * 10);
         const randomSide = Math.floor(Math.random() * 2);
         const randomPosition = Math.floor(Math.random() * 10);
@@ -165,7 +165,9 @@ export function Game({
       }
     }
 
-    const carInterval = setInterval(createCar, 800 / (level / 2));
+    const levelAdjustment = Math.min(level * 100, 700);
+
+    const carInterval = setInterval(createCar, Math.min(800 - levelAdjustment));
     return () => clearInterval(carInterval);
   }, [level, cars]);
 

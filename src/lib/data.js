@@ -21,11 +21,7 @@ export const answers = [
 
   "KARL MARX: It was an historical inevitability.",
 
-  "RONALD REAGAN: What smiley?",
-
   "CAPTAIN KIRK: To boldly go where no smiley has gone before.",
-
-  "FOX MULDER: You saw it cross the road with your own eyes! How many more smileys have to cross before you believe it?",
 
   "SIGMUND FREUD: The fact that you are at all concerned that the smiley crossed the road reveals your underlying sexual insecurity.",
 
@@ -34,8 +30,6 @@ export const answers = [
   "BILL CLINTON: I did not cross the road with THAT smiley. What do you mean by smiley? Could you define the word 'smiley', please?",
 
   "THE BIBLE: And God came down from the heavens, and He said unto the smiley, 'Thou shalt cross the road.' And the smiley crossed the road, and there was much rejoicing.",
-
-  "COLONEL SANDERS: I missed this one smiley?",
 
   "It didn't. Chuck Norris threw it.",
 
