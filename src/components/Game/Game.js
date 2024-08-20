@@ -37,7 +37,7 @@ const StyledScreen = styled.div`
 `;
 
 const StyledGame = styled.div`
-  height: 70vh;
+  height: 500px;
   width: 1000px;
   border-radius: 20px;
   background-color: var(--secondary-color);
