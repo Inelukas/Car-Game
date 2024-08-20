@@ -9,6 +9,18 @@ const StyledBody = styled.div`
   display: grid;
   place-content: center;
   height: 100vh;
+
+  @media screen and (max-width: 1200px) {
+    transform: scale(0.8);
+  }
+
+  @media screen and (max-width: 900px) {
+    transform: scale(0.6);
+  }
+
+  @media screen and (max-width: 600px) {
+    transform: scale(0.5);
+  }
 `;
 
 function App() {

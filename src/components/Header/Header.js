@@ -8,7 +8,7 @@ const StyledHeader = styled.header`
   position: fixed;
   top: 0px;
   width: 100vw;
-  height: 10%;
+  height: 10vh;
   background: var(--side-color);
   color: var(--primary-color);
   z-index: 3;
