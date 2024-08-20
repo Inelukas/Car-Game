@@ -44,7 +44,7 @@ const StyledScreen = styled.div`
   }
 
   @media screen and (max-width: 600px) {
-    transform: scale(0.6);
+    transform: scale(0.5);
   }
 `;
 
