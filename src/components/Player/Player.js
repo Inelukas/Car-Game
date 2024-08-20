@@ -23,6 +23,25 @@ export function Player({ playerPosition, onMove, level }) {
     if (playerRef.current) {
       playerRef.current.focus();
     }
+  }, [playerPosition]);
+
+  useEffect(() => {
+    function handleBlur() {
+      if (playerRef.current) {
+        playerRef.current.focus();
+      }
+    }
+
+    const playerElement = playerRef.current;
+    if (playerElement) {
+      playerElement.addEventListener("blur", handleBlur);
+    }
+
+    return () => {
+      if (playerElement) {
+        playerElement.removeEventListener("blur", handleBlur);
+      }
+    };
   }, []);
 
   return (
