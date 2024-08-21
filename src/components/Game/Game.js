@@ -175,23 +175,9 @@ export function Game({
     setCars(cars.filter((car) => car.id !== id));
   }
 
-  function handleButtonMove(direction) {
-    if (!canMove) return;
-    if (direction === "Up") {
-      if (playerPosition >= 450) {
-        setPlayerPosition(-50);
-        onLevel(1);
-      } else {
-        setPlayerPosition((prevValue) => prevValue + 50);
-      }
-    } else if (direction === "Down" && playerPosition > 0) {
-      setPlayerPosition((prevValue) => prevValue - 50);
-    }
-  }
-
   function handleMove(event) {
     if (!canMove) return;
-    const currentKey = event.key;
+    const currentKey = typeof event === "string" ? event : event.key;
     if (currentKey === "ArrowUp") {
       if (playerPosition >= 450) {
         setPlayerPosition(-50);
@@ -225,10 +211,10 @@ export function Game({
       {!gameOver && gameOn ? (
         <StyledScreen>
           <div className="buttons">
-            <button onClick={() => handleButtonMove("Up")} className="button">
+            <button onClick={() => handleMove("ArrowUp")} className="button">
               ↑
             </button>
-            <button onClick={() => handleButtonMove("Down")} className="button">
+            <button onClick={() => handleMove("ArrowDown")} className="button">
               ↓
             </button>
           </div>
